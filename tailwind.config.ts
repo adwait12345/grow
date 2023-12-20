@@ -1,4 +1,6 @@
+const defaultConfig = require("tailwindcss/defaultConfig")
 import type { Config } from 'tailwindcss'
+
 
 const config: Config = {
   content: [
@@ -7,6 +9,10 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+        fontFamily: {
+        Montserrat: ["Montserrat", ...defaultConfig.theme.fontFamily.sans],
+        Overpass: ["Overpass Mono", ...defaultConfig.theme.fontFamily.sans],
+      },
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Azeret+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,400;1,500&family=Bebas+Neue&family=Caveat:wght@400;500;600;700&family=Cedarville+Cursive&family=Comfortaa:wght@500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100&family=Libre+Baskerville&family=Lumanosimo&family=Manrope:wght@400;500;600&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&family=Unbounded:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Azeret+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,400;1,500&family=Bebas+Neue&family=Caveat:wght@400;500;600;700&family=Cedarville+Cursive&family=Comfortaa:wght@500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100&family=Libre+Baskerville&family=Lumanosimo&family=Manrope:wght@400;500;600&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Overpass+Mono:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&family=Unbounded:wght@500&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.react-tel-input {
+  display: flex !important;
+  align-items: center !important;
+  height: 33px !important;
+}
+
+
+
+.react-tel-input .flag-dropdown {
+  border-radius: 100px 0 0 100px !important;
+  border: none !important;
+  border-right: 1px solid #8b8b8b !important;
+  background-color: #fff !important;
+  height: 30px;
+  margin-left: 3px;
+}
+.react-tel-input .flag-dropdown.open .selected-flag {
+  background: #fff;
+  border-radius: 100px 0 0 100px !important;
+}
+
+.react-tel-input .form-control {
+
+  border-radius: 100px !important;
+font-family: 'Overpass Mono', monospace;  /* height: 41px !important; */
+  width: 100% !important;
+  padding-top: 25px !important;
+  padding-bottom: 25px !important;
+  font-weight: 400 !important;
+  font-size: 14px !important;
+  
+}
+
+.react-tel-input .selected-flag .flag {
+  margin-left: 6px !important;
+      border-radius: 6px !important;
+}
+
+.react-tel-input .selected-flag .flag .arrow {
+  display: none !important;
+}

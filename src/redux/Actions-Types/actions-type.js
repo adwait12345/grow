@@ -1,0 +1,13 @@
+export const ActionTypes = {
+    //CART
+    SET_CART: "SET_CART",
+    SELECTED_CART: "SELECTED_CART",
+
+    // ORDER
+    SET_ORDER: "SET_ORDER",
+    SELECTED_ORDER: "SELECTED_ORDER",
+
+    // ORDER
+    SET_METHOD: "SET_METHOD",
+    SELECTED_METHOD: "SELECTED_METHOD",
+}
