@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ecommerce App
 
 ## Getting Started
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  <a name="run-local"/>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+  ## How to run locally and Set-up
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+  Follow these steps to set up the project locally:
 
-## Learn More
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/adwait12345/grow.git
+2. Navigate to the project directory:
+    ```bash
+    cd grow
+3. Navigate to the project directory:
+    ```bash
+    npm install
+3. Start the development server:
+    ```bash
+    npm start
+The application should now be running locally, and you can access it in your web browser at http://localhost:3000.
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### How to Use
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![Checkout](https://github.com/adwait12345/grow/blob/master/public/Checkout.png?raw=true)
 
-## Deploy on Vercel
+![Payment](https://github.com/adwait12345/grow/blob/master/public/Payment.png?raw=true)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Confirmed Payment](https://github.com/adwait12345/grow/blob/master/public/Confirmed.png?raw=true)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+
+
+<a name="demo"/>
+
+## Brief Description
+I designed custom UI in figma for this app. It was amazing, it took me 1 day to finilize UI,
+after I created UI first of all that won't took to much, now the main journey started, now I have started implementing functionality and api stuff, then installed zustand built the state hooks it was working great, then I faced one issue, my parent component was not re-rending after update state in child component, I tried hard, but it was taking time, I almost wasted more than 8hrs behind Zustand then finillaly decided to shift on redux, it was boring to write redux boiler plate, but it did not disappointed me. It was nice experience building this app.
+
+
+
+
+## Demo
+
+Live : [click for live demo](https://grow-ashen.vercel.app/checkout).
+
+  
