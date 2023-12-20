@@ -34,6 +34,7 @@ export default function Checkout() {
   const DISPATCH = useDispatch();
 
   const [phone, setPhone] = useState("");
+  const [discount, setdiscount] = useState(0);
   const [open, setOpen] = useState<Boolean>(false);
   const [Orderss, setOrderss] = useState<Array<IProduct>>();
 
@@ -41,6 +42,7 @@ export default function Checkout() {
   const [cart, setCart] = useState<ICart>({
     address: "",
     phone: phone,
+    promo:"",
     purchase: [],
     orderAmt: 0,
     deliveryFee: 0,
@@ -57,6 +59,12 @@ export default function Checkout() {
 
     var Cart = useSelector((state: any) => state.allCarts?.Cart?.Carts);
 
+
+    const Promo =()=>{
+    if (cart.promo==="DISCOUNT"){
+     setdiscount(100)
+    }
+    }
 
   const callbackFunction = useCallback(() => {
     setOrderss(Order?.Orders.Orders);
@@ -77,7 +85,7 @@ export default function Checkout() {
             ...prevForm,
             purchase: Orderss || [],
             deliveryFee: 10.0,
-            discount: 20.0,
+            discount:discount,
             orderAmt: OrderAmt,
             total: OrderAmt + cart.deliveryFee - cart.discount,
             method:paymentMethods
@@ -89,7 +97,7 @@ export default function Checkout() {
 DISPATCH(setAddCart({ Carts: cart }));
 
     callbackFunction();
-  }, [products,Orderss, cart.address, cart.phone]);
+  }, [products,Orderss, cart.address, cart.phone, cart.discount, discount]);
 
   console.log(cart);
 
@@ -125,7 +133,7 @@ DISPATCH(setAddCart({ Carts: cart }));
                 name="address"
                 onChange={(e) =>
                   setCart((prevCart) => ({
-                    ...cart,
+                    ...prevCart,
                     address: e.target.value,
                   }))
                 }
@@ -196,7 +204,27 @@ DISPATCH(setAddCart({ Carts: cart }));
         </div>
       </div>
       <div className="w-11/12">
-        <Promo_code />
+        <div className="flex flex-col gap-5">
+          <h1 className="w-full font-Montserrat text-[16px]"> Promo Code</h1>
+          <div className=" border-2 flex items-center justify-between px-3.5 py-1.5 pr-1.5  rounded-full">
+            <input
+              onChange={(e) =>
+                setCart((prevCart) => ({
+                  ...prevCart,
+                  promo: e.target.value,
+                }))
+              }
+              type="text"
+              placeholder="Enter Promo code"
+              className=" font-Overpass  placeholder:font-Overpass text-[16px] focus:outline-none mt-1 tracking-widest "
+            />
+            <button
+            onClick={Promo}
+            className=" tracking-widest font-Montserrat px-3 py-2 bg-black rounded-full text-white font-bold text-[11px]">
+              APPLY
+            </button>
+          </div>
+        </div>
       </div>
       <div className="w-11/12">
         <Order_Summary />

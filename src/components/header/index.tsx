@@ -10,7 +10,7 @@ const router = useRouter()
 
   return (
     <div className="w-full flex items-center gap-4 py-4 px-5 border-b-2 ">
-      <button onClick={() => router.back()}>
+      <button >
         <LeftArrow />
       </button>
 

@@ -30,11 +30,11 @@ export function Payment_Drawer(props: any) {
 
 
   const MakePayment = () =>{
-    DISPATCH(setMethod({ Method: Meth  }));
-    router.replace("/confirmed")
+    if (Meth.length > 0) {
+      DISPATCH(setMethod({ Method: Meth }));
+    router.replace("/confirmed")}
   }
 
- 
 
   
 
@@ -58,7 +58,6 @@ export function Payment_Drawer(props: any) {
             return (
               <button
                 key={idx}
-
                 onClick={() => {
                   setMeth(e);
                 }}

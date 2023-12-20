@@ -9,6 +9,7 @@ quantity: number
 interface ICart {
     address: string
     phone:string
+    promo:string
     purchase: IProduct[]
     orderAmt: number
     deliveryFee: number
