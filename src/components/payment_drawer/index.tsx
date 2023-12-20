@@ -21,7 +21,7 @@ export function Payment_Drawer(props: any) {
  const router =  useRouter()
   const DISPATCH = useDispatch();
   var Cart = useSelector((state: any) => state.allCarts?.Cart?.Carts);
-  const [Meth, setMeth] = useState([])
+  const [Meth, setMeth] = useState("")
 
 
   const { error, products, paymentMethods, mutate, isLoading } = useCart();
@@ -30,6 +30,7 @@ export function Payment_Drawer(props: any) {
 
 
   const MakePayment = () =>{
+    DISPATCH(setMethod({ Method: Meth  }));
     router.replace("/confirmed")
   }
 
@@ -55,11 +56,12 @@ export function Payment_Drawer(props: any) {
            
                   {paymentMethods?.map((e,idx)=>{
             return (
-              <div
+              <button
+               disabled={Meth==""}
                 key={idx}
-                onClick={() => {
-                      DISPATCH(setMethod({Method: e || "" }));
 
+                onClick={() => {
+                  setMeth(e);
                 }}
                 className={` cursor-pointer ${
                   Meth === e
@@ -78,7 +80,7 @@ export function Payment_Drawer(props: any) {
                   height={50}
                 />
                 <p className=" font-Overpass text-[13px]  font-bold ">{e}</p>
-              </div>
+              </button>
             );
           })}   
 

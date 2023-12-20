@@ -25,10 +25,10 @@ export default function RootLayout({
          <html lang="en">
         
         <body>
- <PersistGate loading={null} persistor={Persistor}>
+ {/* <PersistGate loading={null} persistor={Persistor}> */}
           <div className="">{children}</div>
 
-    </PersistGate>
+    {/* </PersistGate> */}
         </body>
     </html> 
 

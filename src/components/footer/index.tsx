@@ -2,11 +2,8 @@
 
 import { useRouter } from "next/navigation";
 
-import useOrderStore from "@/stores/useOrderStore";
-
-import { useEffect } from "react";
-import useCartStore from "@/stores/useCartStore";
-import useCart from "@/hooks/useCart";
+  import { ToastContainer, toast } from "react-toastify";
+  import "react-toastify/dist/ReactToastify.css";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -22,6 +19,17 @@ export default function Footer(props: any) {
   
   const router = useRouter();
 
+const notify = () => toast.error("Invalid Address or Phone");
+
+  const Payment = () =>{
+    if (Cart?.address.length > 10 && Cart?.phone.length > 11) {
+ return props.setOpen(true)
+    }
+    return notify()
+
+
+  }
+
   // console.log(Orders?.length == 0);
 
   return (
@@ -36,21 +44,22 @@ export default function Footer(props: any) {
           </button>
         </>
       ) : (
-      <div className="w-11/12 flex items-center justify-between">
-        <div className="flex flex-col font-Montserrat font-bold">
-          <p className=" text-[15px]">TOTAL</p>
-          <h1 className=" text-[20px]">${Cart?.total.toFixed(2)} </h1>
-          {/* {Cart.address} */}
+        <div className="w-11/12 flex items-center justify-between">
+          <div className="flex flex-col font-Montserrat font-bold">
+            <p className=" text-[15px]">TOTAL</p>
+            <h1 className=" text-[20px]">${Cart?.total.toFixed(2)} </h1>
+            {/* {Cart.address} */}
+          </div>
+          <button
+            // disabled={Cart?.address < 10 || Cart?.phone.length < 11}
+            onClick={Payment}
+            className=" text-white text-[20px] px-6 py-2 rounded-full bg-black font-Montserrat font-semibold"
+          >
+            PAYMENT
+          </button>
         </div>
-        <button
-          disabled={Cart?.total == 0 }
-          onClick={() => props.setOpen(true)}
-          className=" text-white text-[20px] px-6 py-2 rounded-full bg-black font-Montserrat font-semibold"
-        >
-          PAYMENT
-        </button>
-      </div>
-       )}
+      )}
+      <ToastContainer hideProgressBar={true} position="top-center" />
     </div>
   );
 }

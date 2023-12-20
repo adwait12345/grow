@@ -5,12 +5,7 @@ import React from "react";
 
 import time from "../../../assets/images/timeline.png";
 import success from "../../../assets/images/success.png";
-import Order_List from "@/components/order_list";
-import Order_Summary from "@/components/order_summary";
-import useOrderStore from "@/stores/useOrderStore";
-import useCartStore from "@/stores/useCartStore";
-import useMethodsStore from "@/stores/useMethods";
-import useSelectedMethod from "@/stores/useSelectedMethod";
+
 
 
 
@@ -23,12 +18,11 @@ export default function Confirmed() {
     var Cart = useSelector((state: any) => state.allCarts?.Cart?.Carts);
     var Method = useSelector((state:any)=>state.allMethod)
     
-    const { Orders } = useOrderStore.getState();
-    // const { Cart } = useCartStore.getState();
+
 
    const Selected = Method?.Method.Method;
 
-console.log()
+console.log(Cart)
 
 
   return (

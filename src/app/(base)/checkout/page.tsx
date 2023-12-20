@@ -86,10 +86,10 @@ export default function Checkout() {
 
 
     DISPATCH(setOrder({ Orders: products || [] }));
-    DISPATCH(setAddCart({ Carts: cart || [] }));
+DISPATCH(setAddCart({ Carts: cart }));
 
     callbackFunction();
-  }, [products,Orderss]);
+  }, [products,Orderss, cart.address, cart.phone]);
 
   console.log(cart);
 
@@ -125,10 +125,11 @@ export default function Checkout() {
                 name="address"
                 onChange={(e) =>
                   setCart((prevCart) => ({
-                    ...prevCart,
+                    ...cart,
                     address: e.target.value,
                   }))
                 }
+                value={Cart?.address}
                 type="text"
                 className=" w-full font-Overpass mt-1 text-black bg-transparent text-[13px] font-black placeholder-black-200 focus:outline-none "
                 placeholder="add delivery location"
@@ -137,6 +138,7 @@ export default function Checkout() {
             <PhoneInput
               placeholder="9307108192"
               country={"in"}
+              value={Cart?.phone}
               onChange={(e) =>
                 setCart((prevCart) => ({
                   ...prevCart,
