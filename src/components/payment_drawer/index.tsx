@@ -21,7 +21,7 @@ export function Payment_Drawer(props: any) {
  const router =  useRouter()
   const DISPATCH = useDispatch();
   var Cart = useSelector((state: any) => state.allCarts?.Cart?.Carts);
-  const [Meth, setMeth] = useState("")
+  const [Meth, setMeth] = useState([])
 
 
   const { error, products, paymentMethods, mutate, isLoading } = useCart();
@@ -57,7 +57,6 @@ export function Payment_Drawer(props: any) {
                   {paymentMethods?.map((e,idx)=>{
             return (
               <button
-               disabled={Meth==""}
                 key={idx}
 
                 onClick={() => {
