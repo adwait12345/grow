@@ -61,7 +61,7 @@ export default function Checkout() {
 
 
     const Promo =()=>{
-    if (cart.promo==="DISCOUNT"){
+    if (cart.promo.trim().toLowerCase()==="discount"){
      setdiscount(100)
     }
     }
@@ -74,7 +74,7 @@ export default function Checkout() {
   }, []);
 
   useEffect(() => {
-    // console.log(products)
+    console.log(discount)
     const OrderAmt =
       Orderss?.reduce((accumulator, order) => {
         return accumulator + (order.price * order.quantity || 0);
@@ -87,7 +87,7 @@ export default function Checkout() {
             deliveryFee: 10.0,
             discount:discount,
             orderAmt: OrderAmt,
-            total: OrderAmt + cart.deliveryFee - cart.discount,
+            total: OrderAmt + 10.0 - discount,
             method:paymentMethods
           })); 
     }
