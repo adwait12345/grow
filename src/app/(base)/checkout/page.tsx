@@ -1,21 +1,11 @@
 "use client";
 import Location from "@/assets/svgs/location";
 import Timeline from "@/assets/svgs/timeline";
-import Order_List from "@/components/order_list";
 import Order_Summary from "@/components/order_summary";
-import Promo_code from "@/components/promo_code";
 import Order_Skeleton from "@/components/skeletons/order";
 import useCart from "@/hooks/useCart";
-import useMethodsStore from "@/stores/useMethods";
-import useOrderStore from "@/stores/useOrderStore";
 import Image from "next/image";
-import React, {
-  ChangeEvent,
-  ChangeEventHandler,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { IoIosArrowUp, IoIosArrowDown } from "react-icons/io";
 import EmptyCart from "../../../assets/images/cart.jpg";
 import PhoneInput from "react-phone-input-2";
@@ -23,9 +13,6 @@ import "react-phone-input-2/lib/high-res.css";
 import Address_Skeleton from "@/components/skeletons/address";
 import Promo_Skeleton from "@/components/skeletons/promo";
 import Summary_Skeleton from "@/components/skeletons/summary";
-import useCartStore from "@/stores/useCartStore";
-import useSelectedMethod from "@/stores/useSelectedMethod";
-import { Payment_Drawer } from "@/components/payment_drawer";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setAddCart, setOrder } from "../../../redux/Actions/actions";
@@ -42,64 +29,57 @@ export default function Checkout() {
   const [cart, setCart] = useState<ICart>({
     address: "",
     phone: phone,
-    promo:"",
+    promo: "",
     purchase: [],
     orderAmt: 0,
     deliveryFee: 0,
     discount: 0,
     total: 0,
-    method:[]
+    method: [],
   });
 
   var Order = useSelector((state: any) => state.allOrders);
 
-
   // #######################################################################
 
+  var Cart = useSelector((state: any) => state.allCarts?.Cart?.Carts);
 
-    var Cart = useSelector((state: any) => state.allCarts?.Cart?.Carts);
-
-
-    const Promo =()=>{
-    if (cart.promo.trim().toLowerCase()==="discount"){
-     setdiscount(100)
+  const Promo = () => {
+    if (cart.promo.trim().toLowerCase() === "discount") {
+      setdiscount(100);
     }
-    }
+  };
 
   const callbackFunction = useCallback(() => {
     setOrderss(Order?.Orders.Orders);
-
-
-
   }, []);
 
   useEffect(() => {
-    console.log(discount)
+    // console.log(discount)
     const OrderAmt =
       Orderss?.reduce((accumulator, order) => {
         return accumulator + (order.price * order.quantity || 0);
       }, 0) || 0;
     console.log(OrderAmt);
-    if(OrderAmt){
-               setCart((prevForm) => ({
-            ...prevForm,
-            purchase: Orderss || [],
-            deliveryFee: 10.0,
-            discount:discount,
-            orderAmt: OrderAmt,
-            total: OrderAmt + 10.0 - discount,
-            method:paymentMethods
-          })); 
+    if (OrderAmt) {
+      setCart((prevForm) => ({
+        ...prevForm,
+        purchase: Orderss || [],
+        deliveryFee: 10.0,
+        discount: discount,
+        orderAmt: OrderAmt,
+        total: OrderAmt + 10.0 - discount,
+        method: paymentMethods,
+      }));
     }
 
-
     DISPATCH(setOrder({ Orders: products || [] }));
-DISPATCH(setAddCart({ Carts: cart }));
+    DISPATCH(setAddCart({ Carts: cart }));
 
     callbackFunction();
-  }, [products,Orderss, cart.address, cart.phone, cart.discount, discount]);
+  }, [products, Orderss, cart.address, cart.phone, cart.discount, discount]);
 
-  console.log(cart);
+  // console.log(cart);
 
   return isLoading ? (
     <div
@@ -219,8 +199,9 @@ DISPATCH(setAddCart({ Carts: cart }));
               className=" font-Overpass  placeholder:font-Overpass text-[16px] focus:outline-none mt-1 tracking-widest "
             />
             <button
-            onClick={Promo}
-            className=" tracking-widest font-Montserrat px-3 py-2 bg-black rounded-full text-white font-bold text-[11px]">
+              onClick={Promo}
+              className=" tracking-widest font-Montserrat px-3 py-2 bg-black rounded-full text-white font-bold text-[11px]"
+            >
               APPLY
             </button>
           </div>

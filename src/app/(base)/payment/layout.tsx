@@ -11,7 +11,5 @@ export default function PaymentLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="">{children}
-  </div>;
-
+  return <div className="">{children}</div>;
 }

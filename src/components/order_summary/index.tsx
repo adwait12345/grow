@@ -1,4 +1,3 @@
-import useCartStore from "@/stores/useCartStore";
 import { useSelector } from "react-redux";
 
 export default function Order_Summary() {
@@ -16,12 +15,10 @@ export default function Order_Summary() {
           <span className=" font-bold">{Cart?.orderAmt.toFixed(2)}</span>
         </p>
         <p className="w-full flex items-center justify-between">
-          Delivery fee{" "}
-          <span className=" font-bold">{Cart?.deliveryFee}</span>
+          Delivery fee <span className=" font-bold">{Cart?.deliveryFee}</span>
         </p>
         <p className="w-full flex items-center justify-between">
-          Discount{" "}
-          <span className=" font-bold">{Cart?.discount}</span>
+          Discount <span className=" font-bold">{Cart?.discount}</span>
         </p>
       </div>
     </div>

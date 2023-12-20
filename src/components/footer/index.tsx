@@ -1,40 +1,45 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
-  import { ToastContainer, toast } from "react-toastify";
-  import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import { useDispatch, useSelector } from "react-redux";
-
+import { useSelector } from "react-redux";
 
 export default function Footer(props: any) {
-  // const { error, products, paymentMethods, mutate, isLoading } = useCart();
-
+  var Tx = useSelector((state: any) => state.allTrx?.Transaction?.Transaction);
 
   var Cart = useSelector((state: any) => state.allCarts?.Cart?.Carts);
 
+  const path = usePathname();
 
-
-  
+  // console.log(path)
   const router = useRouter();
 
-const notify = () => toast.error("Invalid Address or Phone");
+  const notify = () => toast.error("Invalid Address or Phone");
 
-  const Payment = () =>{
+  const Payment = () => {
     if (Cart?.address.length > 10 && Cart?.phone.length > 11) {
- return props.setOpen(true)
+      return props.setOpen(true);
     }
-    return notify()
-
-
-  }
+    return notify();
+  };
 
   // console.log(Orders?.length == 0);
 
   return (
     <div className=" w-full fixed bottom-0 flex items-center justify-center  h-20 border-t-2 bg-white">
-      {Cart?.purchase?.length == 0 ? (
+      {path === "/confirmed" ? (
+        <>
+          <button
+            onClick={() => router.replace("/checkout")}
+            className=" w-11/12 font-Montserrat font-bold text-[20px] text-white bg-black py-3 rounded-full "
+          >
+            {Tx ? "Buy More" : "Retry"}
+          </button>
+        </>
+      ) : Cart?.purchase?.length == 0 ? (
         <>
           <button
             onClick={() => location.reload()}
@@ -59,6 +64,7 @@ const notify = () => toast.error("Invalid Address or Phone");
           </button>
         </div>
       )}
+
       <ToastContainer hideProgressBar={true} position="top-center" />
     </div>
   );

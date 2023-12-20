@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import React from "react";
@@ -6,24 +6,21 @@ import React from "react";
 import time from "../../../assets/images/timeline.png";
 import success from "../../../assets/images/success.png";
 
-
-
+import failed from "../../../assets/images/failed.png";
 
 import card from "../../../assets/images/credit-card.png";
 import upi from "../../../assets/images/upi.png";
 import { useSelector } from "react-redux";
 
 export default function Confirmed() {
+  var Tx = useSelector((state: any) => state.allTrx?.Transaction?.Transaction);
 
-    var Cart = useSelector((state: any) => state.allCarts?.Cart?.Carts);
-    var Method = useSelector((state:any)=>state.allMethod)
-    
+  var Cart = useSelector((state: any) => state.allCarts?.Cart?.Carts);
+  var Method = useSelector((state: any) => state.allMethod);
 
+  const Selected = Method?.Method.Method;
 
-   const Selected = Method?.Method.Method;
-
-console.log(Cart)
-
+  console.log(Cart);
 
   return (
     <div className=" w-full flex flex-col items-center ">
@@ -49,7 +46,7 @@ console.log(Cart)
             </div>
           </div>
           <div className="">
-            <Image src={success} alt="" width={50} height={50} />
+            <Image src={Tx ? success : failed} alt="" width={50} height={50} />
           </div>
         </div>
         <div className="">
@@ -85,8 +82,7 @@ console.log(Cart)
               <span className=" font-bold">{Cart?.deliveryFee}</span>
             </p>
             <p className="w-full flex items-center justify-between">
-              Discount{" "}
-              <span className=" font-bold">{Cart?.discount}</span>
+              Discount <span className=" font-bold">{Cart?.discount}</span>
             </p>
             <p className="w-full text-[20px] font-Montserrat flex items-center justify-between font-black">
               TOTAL <span className="">$ {Cart?.total.toFixed(2)}</span>

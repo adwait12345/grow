@@ -6,12 +6,9 @@ import React, { useEffect, useState } from "react";
 import card from "../../assets/images/credit-card.png";
 import upi from "../../assets/images/upi.png";
 import RightArrowButton from "@/assets/svgs/rightArrowButton";
-import Link from "next/link";
-import useMethodsStore from "@/stores/useMethods";
-import useCartStore from "@/stores/useCartStore";
-import useSelectedMethod from "@/stores/useSelectedMethod";
+
 import { useDispatch, useSelector } from "react-redux";
-import { setAddCart, setMethod } from "@/redux/Actions/actions";
+import { setAddCart, setMethod, setTransaction } from "@/redux/Actions/actions";
 import useCart from "@/hooks/useCart";
 
 import { useRouter } from "next/navigation";
@@ -27,11 +24,17 @@ export function Payment_Drawer(props: any) {
   const { error, products, paymentMethods, mutate, isLoading } = useCart();
 
 
+function randomTx() {
+  return Math.random() < 0.5;
+}
 
 
   const MakePayment = () =>{
     if (Meth.length > 0) {
       DISPATCH(setMethod({ Method: Meth }));
+      const res = randomTx()
+      DISPATCH(setTransaction({ Transaction:res }));
+
     router.replace("/confirmed")}
   }
 

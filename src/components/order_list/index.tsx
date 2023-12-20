@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import shirt from "../../assets/images/shirt.png";
 
-export default function Order_List(props:Array<IProduct>) {
+export default function Order_List(props: Array<IProduct>) {
   return (
     <div className="w-full flex flex-col gap-5">
       <h1 className="w-full font-Montserrat text-[16px]"> Order List</h1>
@@ -26,7 +26,6 @@ export default function Order_List(props:Array<IProduct>) {
           <button>-</button> | 2 | <button>+</button>{" "}
         </div>
       </div>
-
     </div>
   );
 }

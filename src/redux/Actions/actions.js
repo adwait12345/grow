@@ -41,3 +41,18 @@ export const selectedMethod = (smethod) => {
         payload: smethod,
     };
 };
+
+
+export const setTransaction = (tx) => {
+    return {
+        type: ActionTypes.SET_TRANSACTION,
+        payload: tx,
+    };
+};
+
+export const selectedTransaction = (stx) => {
+    return {
+        type: ActionTypes.SELECTED_TRANSACTION,
+        payload:tx,
+    };
+};
