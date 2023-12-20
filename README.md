@@ -50,4 +50,6 @@ after I created UI first of all that won't took to much, now the main journey st
 
 Live : [click for live demo](https://grow-ashen.vercel.app/checkout).
 
+figma: [Figma design](https://www.figma.com/file/DunALxKTyvcLJVMXXIHcR4/potato?type=design&node-id=87%3A530&mode=design&t=aoBg5Y2RchLXumJP-1)
+
   
