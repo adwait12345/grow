@@ -17,3 +17,15 @@ interface ICart {
     total: number
     method:Array
 }
+
+interface IMerch {
+merchantName:string,
+merchantLogo:string,
+theme:{
+    background:string,
+    forground:string,
+    primary: string,
+    primary_forground:string
+}
+}
+

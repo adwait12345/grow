@@ -16,8 +16,12 @@ import Summary_Skeleton from "@/components/skeletons/summary";
 
 import { useDispatch, useSelector } from "react-redux";
 import { setAddCart, setOrder } from "../../../redux/Actions/actions";
+import useCutome from "@/hooks/useCustom";
 
 export default function Checkout() {
+
+
+
   const DISPATCH = useDispatch();
 
   const [phone, setPhone] = useState("");
