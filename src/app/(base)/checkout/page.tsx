@@ -189,7 +189,7 @@ export default function Checkout() {
       </div>
       <div className="w-11/12">
         <div className="flex flex-col gap-5">
-          <h1 className="w-full font-Montserrat text-[16px]"> Promo Code</h1>
+          <h1 className="w-full font-Montserrat text-[16px]"> Promo Code (freeCode: DISCOUNT)</h1>
           <div className=" border-2 flex items-center justify-between px-3.5 py-1.5 pr-1.5  rounded-full">
             <input
               onChange={(e) =>
