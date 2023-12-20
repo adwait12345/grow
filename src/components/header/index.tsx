@@ -1,11 +1,17 @@
-"use client";
+"use client"
 
 import LeftArrow from "@/assets/svgs/leftArrow";
 
-function Header(props: any) {
+import { useRouter } from "next/navigation";
+
+function Header(props:any) {
+
+ 
+const router = useRouter()
+
   return (
     <div className="w-full flex items-center gap-4 py-4 px-5 border-b-2 ">
-      <button>
+      <button onClick={()=> router.replace("/checkout")} >
         <LeftArrow />
       </button>
 
